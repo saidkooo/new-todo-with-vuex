@@ -1,17 +1,32 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SearchTask :tasks="tasks"/>
+    <TasksList :tasks="tasks"/>
+    <AddTask v-on:add-accept="addTask"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import TasksList from './components/TasksList';
+import AddTask from './components/AddTask';
+import SearchTask from "./components/SearchTask";
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components:{
+    TasksList,
+    AddTask,
+    SearchTask,
+  },
+  methods: {
+    addTask(newTask) {
+      this.$store.dispatch("ADD_TASK", newTask)
+    }
+  },
+  computed: {
+    tasks() {
+      return this.$store.getters.TASKS
+    },
   }
 }
 </script>
