@@ -6,8 +6,8 @@
                 <p class="task__item__text">{{ task.description }}</p>
             </div>
             <div class="task__item__buttons">
-                <button class="edit" v-on:click="editTask">Edit</button>
-                <button class="delete" v-on:click="deleteTask(index)">Delete</button>
+                <button class="buttons edit" v-on:click="editTask">Edit</button>
+                <button class="buttons" v-on:click="deleteTask(index)">Delete</button>
             </div>
         </div>
 
@@ -17,8 +17,8 @@
                 <textarea class="task__item__text" v-model="task.description"></textarea>
             </div>
             <div class="task__item__buttons">
-                <button class="edit" v-on:click="acceptEditing(index, task.title, task.description)">Accept</button>
-                <button class="delete" v-on:click="cancelEditing">Cancel</button>
+                <button class="buttons edit" v-on:click="acceptEditing(index, task.title, task.description)">Accept</button>
+                <button class="buttons delete" v-on:click="cancelEditing">Cancel</button>
             </div>
         </div>
     </div>
@@ -51,3 +51,19 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .task__item__buttons {
+        width: 500px;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        padding: 30px 0 30px 0;
+    }
+
+    .task {
+        border: 2px solid #ffffff;
+        border-radius: 15px;
+        color: #ffffff;
+    }
+</style>
