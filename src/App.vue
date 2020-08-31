@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <h1>Welcome to TODO list</h1>
+    <h1>Какие планы?</h1>
     <TasksList :tasks="tasks"/>
-    <AddTask v-on:add-accept="addTask"/>
+    <AddTask v-on:add-accept="addTask" />
   </div>
 </template>
 
@@ -29,9 +29,21 @@ export default {
 </script>
 
 <style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  h1 {
+    color: #fff;
+    padding-bottom: 50px ;
+  }
   body {
-    background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(84,84,251,1) 21%, rgba(0,212,255,1) 100%);
+    background-blend-mode: multiply;
+    background: url("assets/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   #app {
@@ -45,17 +57,5 @@ export default {
     flex-direction: column;
     align-items: center;
   }
-  .buttons {
-    font-size: 16px;
-    background: none;
-    border: 2px solid #fff;
-    color: #fff;
-    border-radius: 5px;
-    height: 30px;
-    width: 100px;
-  }
-  .buttons:hover {
-    color: #000;
-    background: #fff;
-  }
+  
 </style>
